@@ -1,0 +1,10 @@
+footer {
+    background-color: aqua;
+
+    a {
+
+        margin: auto;
+        display: inline-block;
+
+    }
+}

@@ -1,3 +1,83 @@
 html {
     background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+
+
+
+.slider {
+    display: block;
+    margin: auto;
+    position: relative;
+    width: 90dvw;
+    height: 50dvh;
+    max-height: 30dvh;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: transparent;
+
+
+}
+
+
+.slide {
+    position: absolute;
+    top: 50%;
+    width: 20dvw;
+    height: auto;
+    max-width: 30dvw;
+    max-height: 30dvh;
+    object-fit: scale-down;
+    transform: translateY(-50%);
+    opacity: 0;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+
+
+}
+
+.left {
+
+    animation-name: slide-left;
+}
+
+.right {
+    animation-name: slide-right;
+}
+
+@keyframes slide-left {
+    0% {
+        left: -200px;
+        opacity: 0;
+    }
+
+    50% {
+        left: 50%;
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        right: -200px;
+        opacity: 0;
+    }
+
+    50% {
+        right: 50%;
+        opacity: 1;
+    }
+
+    100% {
+        right: 100%;
+        opacity: 0;
+    }
 }
