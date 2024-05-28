@@ -1,5 +1,6 @@
 body,
 html {
+    background-color: #1A2136;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -9,13 +10,14 @@ html {
 nav {
 
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #FFFE9D;
+    background-color: #CFAE6B;
 }
 
 
 
 li,
-a {
+a,
+img {
 
     display: inline-block;
     text-decoration: none;
@@ -24,4 +26,9 @@ a {
     :hover {
         color: white
     }
+}
+
+#navbar {
+    top: 0;
+    position: relative;
 }

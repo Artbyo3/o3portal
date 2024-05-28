@@ -1,0 +1,33 @@
+.linkButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.linkItem {
+    background-color: #FFFE9D;
+    border-radius: 20px;
+    padding: auto;
+    margin: auto;
+    margin-bottom: 10px;
+
+
+}
+
+.linkItem a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+
+}
+
+.linkItem a span {
+    margin-right: 5px;
+}
+
+.linkItem a img {
+    width: 20px;
+    height: 20px;
+}
