@@ -1,5 +1,5 @@
 footer {
-    background-color: #131317;
+
     height: 20%;
 
     a {
@@ -20,7 +20,7 @@ footer {
 }
 
 .linkItemFooter {
-    background-color: #FFFE9D;
+    background-color: var(--second-alt-color);
     margin-bottom: 10px;
 
 

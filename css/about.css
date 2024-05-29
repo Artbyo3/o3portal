@@ -6,7 +6,7 @@
 }
 
 .linkItem {
-    background-color: #FFFE9D;
+    background-color: var(--second-alt-color);
     border-radius: 20px;
     padding: auto;
     margin: auto;

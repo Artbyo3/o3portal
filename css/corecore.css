@@ -1,0 +1,54 @@
+:root {
+    /* colros*/
+    --white-color: white;
+    --main-bg-color: #1A2136;
+    --main-text-color: #61dafb;
+    --main-alt-color: #CFAE6B;
+    --second-alt-color: #FFFE9D;
+    --bg-gradiant: linear-gradient(to bottom, #fffe9d, #d5ae73, #966a54, #4d3432, #000000);
+    --heading-font-size: 10rem;
+    --main-font-size: 2rem;
+    --paragraph-font-size: 1rem;
+
+    /* Padding */
+    --padding: 20px;
+
+    /* font */
+    --main-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    /* font size */
+    --font-size-base: 1.5rem;
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.75rem;
+    --font-size-h4: 1.5rem;
+    --font-size-h5: 1.25rem;
+    --font-size-h6: 1rem;
+    --font-size-small: 0.875rem;
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+/* 222*/
+* {
+    font-family: var(--main-font-family);
+}
+
+/* 222 */
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+p {
+    font-size: var(--font-size-base);
+}
+
+:hover {
+    color: var(--white-color)
+}
