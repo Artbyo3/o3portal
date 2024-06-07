@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Amiya",
+        "description": "Amiya Fanart",
+        "url": "./images/art/a1.png",
+        "category": "fanart"
+    },
+    {
+        "title": "Me?",
+        "description": "Original Work",
+        "url": "./images/art/a2.png",
+        "category": "original"
+    },
+    {
+        "title": "Rainyday",
+        "description": "Original Work",
+        "url": "./images/art/a3.png",
+        "category": "original"
+    },
+    {
+        "title": "She is still alive",
+        "description": "Original Work",
+        "url": "./images/art/a4.png",
+        "category": "original"
+    },
+    {
+        "title": "Lirycal Nigth",
+        "description": "Original Work",
+        "url": "./images/art/a5.png",
+        "category": "original"
+    }
+]

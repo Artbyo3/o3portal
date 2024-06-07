@@ -1,3 +1,8 @@
+@font-face {
+    font-family: unispace;
+    src: url(../assets/fotns/Unispace\ Bd.otf);
+}
+
 :root {
     /* colros*/
     --white-color: white;
@@ -14,7 +19,7 @@
     --padding: 20px;
 
     /* font */
-    --main-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --main-font-family: 'unispace';
 
     /* font size */
     --font-size-base: 1.5rem;

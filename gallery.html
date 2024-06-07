@@ -5,25 +5,42 @@
     <link rel="shortcut icon" href="./images/icon.webp" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/gallery.css">
     <title>Gallery\o3Portal</title>
 </head>
 
 <body>
-    <div id="navbar"></div>
-    <!-- slide of images here later  -->
+
+    <header>
+        <div id="navbar"></div>
+    </header>
+
+    <main>
+
+        <p>This is gallery </p>
+
+
+        <div class="gallery" id="gallery"></div>
+
+
+
+        <div id="modal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modal-image">
+            <div id="caption"></div>
+        </div>
 
 
 
 
+    </main>
 
-    <h1>gallery html gallery</h1>
 
-    <p>This is gallery gallery</p>
-    <!-- footer here later -->
-
-    <div id="footer"></div>
-    <script src="js/core.js"></script>
-
+    <footer>
+        <div id="footer"></div>
+    </footer>
+    <script src="js/core.js" defer></script>
+    <script src="js/all.js"></script>
 </body>
 
 </html>
