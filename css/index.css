@@ -16,7 +16,7 @@ html {
 
 
 .main-landing {
-    background: rgb(53, 117, 93) url('../images/bg1.webp') no-repeat center center;
+    background: url('../images/bg1.jpg') no-repeat center center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,11 +32,11 @@ html {
 
 @keyframes slideShow {
     50% {
-        background-image: url('../images/bg1.webp');
+        background-image: url('../images/bg1.jpg');
     }
 
     50% {
-        background-image: url('../images/bg2.webp');
+        background-image: url('../images/bg2.jpg');
     }
 
 
