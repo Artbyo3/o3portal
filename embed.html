@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARTBYO3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;-webkit-font-smoothing:antialiased}
+body{
+  font-family:"Space Grotesk",sans-serif;
+  background:#0f1115;
+  color:#e9ecef;
+  overflow:hidden;
+  width:100%;height:100%;
+  cursor:default;
+}
+::selection{background:#78b7ff;color:#000}
+canvas{position:fixed;inset:0;z-index:0;display:block}
+
+.ui{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;justify-content:flex-end;padding:1.6rem;pointer-events:none}
+
+.w{
+  font-size:clamp(3rem,14vw,10rem);
+  font-weight:900;
+  letter-spacing:-0.07em;
+  line-height:.74;
+  text-shadow:0 0 80px rgba(120,183,255,.1),0 3px 0 rgba(15,17,21,.7);
+  margin-bottom:.4rem;
+}
+
+.tag{display:flex;gap:2rem;align-items:flex-end;flex-wrap:wrap}
+
+.m{
+  font-size:.78rem;
+  color:#8b95a5;
+  line-height:1.55;
+  max-width:480px;
+}
+
+.m-jp{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.58rem;
+  color:#6c7583;
+  letter-spacing:.04em;
+  margin-top:.25rem;
+}
+
+.cta{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  font-size:1.05rem;
+  font-weight:700;
+  letter-spacing:-.02em;
+  color:#66ffc2;
+  text-decoration:none;
+  pointer-events:auto;
+  transition:text-shadow .3s;
+}
+.cta:hover{text-shadow:0 0 30px rgba(102,255,194,.35)}
+
+.cta-arrow{font-size:.7em;transition:transform .3s}
+.cta:hover .cta-arrow{transform:translateX(4px)}
+
+@media(max-width:500px){
+  html{font-size:15px}
+  .ui{padding:1rem}
+  .tag{flex-direction:column;gap:.6rem}
+  .cta{font-size:.9rem}
+}
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<main class="ui">
+  <h1 class="w">ARTBYO3</h1>
+  <div class="tag">
+    <div>
+      <p class="m">VRChat 3D Clothing, Accessories &amp; Assets — Made Just for You.</p>
+      <p class="m-jp">VRChat向け3Dクロージング・アクセサリー・アセット — あなたのために制作。</p>
+    </div>
+    <a href="https://artbyo3.booth.pm" target="_blank" rel="noopener" class="cta">
+      visit shop <span class="cta-arrow">→</span>
+    </a>
+  </div>
+</main>
+
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+var c=document.getElementById("c");
+var r=new THREE.WebGLRenderer({canvas:c,alpha:false,antialias:false,powerPreference:"low-power"});
+r.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
+r.toneMapping=THREE.ACESFilmicToneMapping;
+r.toneMappingExposure=1.1;
+
+var W=window.innerWidth,H=window.innerHeight;
+r.setSize(W,H);
+
+var cam=new THREE.OrthographicCamera(-1,1,1,-1,.1,10);
+cam.position.z=1;
+
+var scene=new THREE.Scene();
+var comp=new EffectComposer(r);
+comp.addPass(new RenderPass(scene,cam));
+var bp=new UnrealBloomPass(new THREE.Vector2(W,H),.85,.38,.4);
+comp.addPass(bp);
+
+var geo=new THREE.PlaneGeometry(2,2);
+var uni={uTime:{value:0},uRes:{value:new THREE.Vector2(W,H)}};
+
+var vert=`varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}`;
+
+var frag=`varying vec2 vUv;uniform float uTime;uniform vec2 uRes;
+float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y);}
+float fbm(vec2 p){float v=0.,a=.5;vec2 s=vec2(100.);for(int i=0;i<4;i++){v+=a*noise(p);p=p*2.+s;a*=.5;}return v;}
+void main(){vec2 uv=vUv;float asp=uRes.x/uRes.y;vec2 q=uv*2.6;q.x*=asp;
+float d1=fbm(q+uTime*.07);float d2=fbm(q+vec2(d1*1.5,d1*.7)+uTime*.1);float d3=fbm(q+vec2(d2*1.2,d1*.9)+uTime*.05);
+float warp=d1*.5+d2*.35+d3*.15;float val=pow(clamp(warp,.0,1.),1.5);
+vec3 bg=vec3(.059,.067,.082);vec3 card=vec3(.106,.122,.153);vec3 blue=vec3(.471,.718,1.);vec3 green=vec3(.4,1.,.761);
+vec3 col;if(val<.3)col=mix(bg,card,val/.3);else if(val<.55)col=mix(card,blue,(val-.3)/.25);else if(val<.8)col=mix(blue,green,(val-.55)/.25);else col=green;
+float bamp=smoothstep(.3,.6,val);col+=bamp*blue*.18;
+float vig=1.-length(vUv-.5)*.55;col*=vig;gl_FragColor=vec4(col,1.);}`;
+
+var mat=new THREE.ShaderMaterial({uniforms:uni,vertexShader:vert,fragmentShader:frag});
+scene.add(new THREE.Mesh(geo,mat));
+
+window.addEventListener("resize",function(){W=window.innerWidth;H=window.innerHeight;r.setSize(W,H);comp.setSize(W,H);uni.uRes.value.set(W,H)});
+
+var clock=new THREE.Clock();
+function loop(){uni.uTime.value+=Math.min(clock.getDelta(),.1);bp.strength=.8+Math.sin(uni.uTime.value*.3)*.12;comp.render();requestAnimationFrame(loop)}
+loop();
+</script>
+</body>
+</html>

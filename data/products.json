@@ -1,0 +1,67 @@
+{
+  "shopName": "artbyo3",
+  "shopUrl": "https://artbyo3.booth.pm",
+  "lastFetched": null,
+  "items": [
+    {
+      "id": "sample-01",
+      "name": "Cyber Hoodie — Black Edition",
+      "price": 1200,
+      "currency": "JPY",
+      "image": "https://placehold.co/600x600/1b1f27/78b7ff?text=O3+ITEM",
+      "url": "https://artbyo3.booth.pm",
+      "category": "avatar",
+      "tags": ["hoodie", "cyber", "vrchat"]
+    },
+    {
+      "id": "sample-02",
+      "name": "Neon Techwear Set",
+      "price": 2400,
+      "currency": "JPY",
+      "image": "https://placehold.co/600x600/1b1f27/78b7ff?text=O3+ITEM",
+      "url": "https://artbyo3.booth.pm",
+      "category": "set",
+      "tags": ["techwear", "neon", "vrchat"]
+    },
+    {
+      "id": "sample-03",
+      "name": "Street Mask — Glitch Variant",
+      "price": 800,
+      "currency": "JPY",
+      "image": "https://placehold.co/600x600/1b1f27/78b7ff?text=O3+ITEM",
+      "url": "https://artbyo3.booth.pm",
+      "category": "accessory",
+      "tags": ["mask", "glitch", "vrchat"]
+    },
+    {
+      "id": "sample-04",
+      "name": "Digital Kimono — Void Edition",
+      "price": 1800,
+      "currency": "JPY",
+      "image": "https://placehold.co/600x600/1b1f27/78b7ff?text=O3+ITEM",
+      "url": "https://artbyo3.booth.pm",
+      "category": "outfit",
+      "tags": ["kimono", "void", "vrchat"]
+    },
+    {
+      "id": "sample-05",
+      "name": "Chrome Accessories Pack",
+      "price": 1500,
+      "currency": "JPY",
+      "image": "https://placehold.co/600x600/1b1f27/78b7ff?text=O3+ITEM",
+      "url": "https://artbyo3.booth.pm",
+      "category": "accessory",
+      "tags": ["chrome", "pack", "vrchat"]
+    },
+    {
+      "id": "sample-06",
+      "name": "Holographic Boots",
+      "price": 900,
+      "currency": "JPY",
+      "image": "https://placehold.co/600x600/1b1f27/78b7ff?text=O3+ITEM",
+      "url": "https://artbyo3.booth.pm",
+      "category": "footwear",
+      "tags": ["boots", "holo", "vrchat"]
+    }
+  ]
+}
