@@ -6,7 +6,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
 /* === SETUP === */
 var canvas = document.getElementById("c");
 var renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: false, powerPreference: "high-performance" });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.2;
 
@@ -69,7 +69,7 @@ var frag = /* glsl */`
         float a = 0.5;
         float freq = 1.0;
         vec2 shift = vec2(100.0);
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             v += a * noise(p * freq);
             p = p * 2.0 + shift;
             freq *= 2.0;
